@@ -1,0 +1,28 @@
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  font-family: "Archivo", sans-serif;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: hidden;
+  width: 0;
+}
+
+html,
+body {
+  margin: 0rem;
+  padding: 0rem;
+}
+
+
+.main__layout__container {
+  background-color: #000;
+  height: 100svh;
+  width: 100svw;
+}
