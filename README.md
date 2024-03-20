@@ -21,8 +21,9 @@ This is a simple React chat application, A chat room to allow all the joined cli
 
 ## Local Environment Variables
 
-1. VITE_WS_URL = ws://localhost:8080
-2. VITE_LOCAL_SERVER_URL = http://localhost:8000
+1. Create a .env file in the root directory and add these variables
+   1. VITE_WS_URL = ws://localhost:8000
+   2. VITE_LOCAL_SERVER_URL = http://localhost:8000
 
 ## Usage
 
@@ -50,9 +51,9 @@ npm run dev
    ```
 
 ## Local Environment Variables
-
-1. MONGODB_URI = <!-- eg:- mongodb cluster uri-->
-<!-- eg:-  mongodb+srv://<username>:<password>@cluster0.ronsn.mongodb.net/<collectionName::eg:chatapp>?retryWrites=true&w=majority -->
+1. Create a .env file in the root directory and add this variable
+   1. MONGODB_URI = <!-- eg:- mongodb cluster uri-->
+   <!-- eg:-  mongodb+srv://<username>:<password>@cluster0.ronsn.mongodb.net/<collectionName::eg:chatapp>?retryWrites=true&w=majority -->
 
 ## Usage
 
