@@ -6,7 +6,6 @@ const WS_URL = import.meta.env.VITE_WS_URL;
 export default function ChatBox({ data }) {
   // prepopulating the data from the database
   const [messages, setMessages] = useState(data?.data);
-
   // state to manage socket userId from the server
   const [userId, setUserId] = useState(null);
 
