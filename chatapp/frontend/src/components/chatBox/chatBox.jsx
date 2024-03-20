@@ -1,27 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import Input from "../../shared/Input/Input";
+import React, { useEffect, useState } from "react";
 import "./chatBox.css";
-import useWebSocket, { ReadyState } from "react-use-websocket";
-const WS_URL = import.meta.env.VITE_WS_URL
-// "ws://localhost:8080";
+import useWebSocket from "react-use-websocket";
+const WS_URL = import.meta.env.VITE_WS_URL;
 
 export default function ChatBox({ data }) {
-  const [messages, setMessages] = useState(data.data);
+  // prepopulating the data from the database
+  const [messages, setMessages] = useState(data?.data);
+
+  // state to manage socket userId from the server
   const [userId, setUserId] = useState(null);
-  const chatContainer = useRef();
+
+  // client side websocket connection
   const { sendJsonMessage, lastJsonMessage } = useWebSocket(WS_URL);
 
-  const Scroll = () => {
-    const { offsetHeight, scrollHeight, scrollTop } = chatContainer.current;
-    if (scrollHeight <= scrollTop + offsetHeight + 100) {
-      chatContainer.current?.scrollTo(0, scrollHeight);
-    }
-  };
-  // useEffect(() => {
-  //   Scroll();
-  // }, [messages]);
-
+  // useEffect triggers everytime after the change in lastJsonMessage dependency and update messages state
   useEffect(() => {
     if (lastJsonMessage == null) return;
     else if (lastJsonMessage.type == 4) {
@@ -29,9 +21,11 @@ export default function ChatBox({ data }) {
     } else setMessages((prev) => [...prev, lastJsonMessage]);
   }, [lastJsonMessage]);
 
+  // handle message submit from the input form and sendJsonMessage to server
   function submitMessageHandler(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
+    if (!formData.get("message")) return;
     sendJsonMessage(formData.get("message"));
     e.target.reset();
     e.target.focus();
@@ -39,9 +33,9 @@ export default function ChatBox({ data }) {
 
   return (
     <div className="chat__box__container">
-      <h1>Random Chat Room</h1>
+      <h1>Start Messaging</h1>
       <div className="chats__wrapper">
-        <div className="chats" ref={chatContainer}>
+        <div className="chats">
           {messages
             .map((item, i) => {
               return (
@@ -107,7 +101,9 @@ export default function ChatBox({ data }) {
             placeholder="Type you message..."
             autoComplete="off"
           />
-          <button><img src="/send.svg"/></button>
+          <button type="submit" className="send__button">
+            <img src="/send.svg" />
+          </button>
         </form>
       </div>
     </div>

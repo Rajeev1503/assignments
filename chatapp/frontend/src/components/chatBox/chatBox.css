@@ -1,3 +1,4 @@
+/* chat box styling starts */
 .chat__box__container {
   position: relative;
   height: 100%;
@@ -12,18 +13,19 @@
 }
 
 .chat__box__container h1 {
-  /* padding: 1rem; */
   font-size: 2rem;
+  font-weight: 400;
   margin-top: 0;
   margin-bottom: 0;
   height: 10%;
-  /* text-transform: uppercase; */
 }
 
-.message__input__box {
-  height: 10%;
-  flex-grow: 0;
-  width: 100%;
+.start__messaging__prompt{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
 }
 
 .chats__wrapper {
@@ -46,7 +48,10 @@
   align-items: flex-end;
   gap: 0.8rem;
 }
+/* chat box styling ends */
 
+
+/* message body styling starts */
 .message__info {
   width: 100%;
   color: white;
@@ -100,7 +105,8 @@
 
 .user__activity__info {
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: transparent;
+  color: #ccc;
   border: none;
   padding: 0.5rem 1rem;
   overflow: hidden;
@@ -147,7 +153,57 @@
   color: #bbb;
   font-size: x-small;
 }
+/* message body styling ends */
 
+
+/* input form styling starts */
+.message__input__box {
+  height: 10%;
+  flex-grow: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 0rem 1rem;
+  border: 2px solid rgb(41, 41, 41);
+  border-radius: 10px;
+  outline: none;
+}
+
+input {
+  flex-grow: 1;
+  height: auto;
+  width: 100%;
+  padding: 0.8rem 0.2rem;
+  font-size: medium;
+  color: rgb(202, 202, 202);
+  font-weight: 600;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.send__button {
+  flex-grow: 0;
+  background-color: white;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  height: 32px;
+  width: 36px;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.send__button img {
+  width: 80%;
+}
+/* input form styling ends */
+
+/* chatbox responsive styling*/
 @media screen and (max-width: 500px) {
   .chats__wrapper {
     width: 90% !important;

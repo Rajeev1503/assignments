@@ -1,11 +1,5 @@
 .main__container {
   height: 100%;
-  display: flex;
-  flex-flow: row;
-  align-items: center;
   width: 100%;
-  justify-content: center;
-  gap: 0.5rem;
-  color: #ffffff;
   padding: 10px;
 }

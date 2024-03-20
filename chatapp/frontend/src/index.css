@@ -20,9 +20,9 @@ body {
   padding: 0rem;
 }
 
-
 .main__layout__container {
   background-color: #000;
+  color: #ffffff;
   height: 100svh;
   width: 100svw;
 }
